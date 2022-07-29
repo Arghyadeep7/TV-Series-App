@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Navigate replace to="/tv/popular" />}
+          element={<Navigate replace to="/tv/trending" />}
         />
         <Route path="/tv/popular" element={<TvSeriesComponent type="popular"/>} />
         <Route path="/tv/top_rated" element={<TvSeriesComponent type="top_rated"/>} />
