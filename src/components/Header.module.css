@@ -1,0 +1,29 @@
+.navBrand{
+    font-size: 30px;
+    padding: 5px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navBrand:hover{
+    color: yellowgreen;
+}
+
+.navLink{
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.search{
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.search:hover{
+    color: blue;
+}
