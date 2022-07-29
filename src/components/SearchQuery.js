@@ -27,7 +27,7 @@ const SearchQuery = () => {
 
         setLoading(true);
         
-        const searchData=await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&include_adult=true&page=${count}&query=${query}`)
+        const searchData=await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_KEY}&include_adult=true&page=${count}&query=${query}`)
         .then(res => res.json());
 
         setTvSeries(searchData.results);

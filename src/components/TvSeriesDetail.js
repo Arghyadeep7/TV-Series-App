@@ -85,7 +85,7 @@ const TvSeriesDetail = () => {
         }else{
             try{
 
-                const similarTvSeriesData=await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${count}`)
+                const similarTvSeriesData=await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_API_KEY}&page=${count}`)
                 .then(res => res.data);
     
                 setSimilar(similar.concat(similarTvSeriesData.results));
