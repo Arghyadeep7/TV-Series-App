@@ -70,14 +70,16 @@ const SeasonComponent = () => {
             
                 if(trailerData.length > 0) {
                     setTrailer(trailerData[0].key);
-                }else{
-                    setTrailer("");
                 }
             }
 
-            setEpisodes(seasonData.episodes);
+            const videoData=seasonData.videos.results.filter((video)=>{
+                return video.key!=trailer;
+            });
 
-            setVideos(seasonData.videos.results);
+            setVideos(videoData);
+
+            setEpisodes(seasonData.episodes);
 
         }catch(error){
             console.log(error);

@@ -22,8 +22,7 @@ const TvSeriesDetail = () => {
     const [similar, setSimilar] = useState([]);
     const [loading, setLoading]=useState(true);
     const [cast, setCast]=useState([]);
-    const [trailer, setTrailer] = useState("");
-    const [video, setVideo]=useState("");
+    const [videos, setVideos]=useState([]);
     const { id } = useParams();
 
     const navigate=useNavigate();
@@ -56,20 +55,7 @@ const TvSeriesDetail = () => {
 
                 setCast(actorData);
 
-                if(data.videos.results.length > 0){
-
-                    const trailerData=data.videos.results.filter((trailer)=>{
-                        return trailer.name.toLowerCase().includes("trailer");
-                    });
-                
-                    if(trailerData.length > 0) {
-                        setVideo("");
-                        setTrailer(trailerData[0].key);
-                    }else{
-                        setTrailer("");
-                        setVideo(data.videos.results[0].key);
-                    }
-                }
+                setVideos(data.videos.results);
 
                 setSimilar(data.similar.results);
 
@@ -129,9 +115,6 @@ const TvSeriesDetail = () => {
 
                             <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"40px"}}>
 
-                                {trailer && <Button href={`https://www.youtube.com/watch?v=${trailer}`} target="_blank" variant="danger" style={{backgroundColor:"red"}}><i className="fab fa-youtube" />&nbsp;Trailer</Button>}
-                                {video && <Button href={`https://www.youtube.com/watch?v=${video}`} target="_blank" variant="danger" style={{backgroundColor:"red"}}><i className="fab fa-youtube" />&nbsp;Video</Button>}
-
                                 {tvSeriesData.homepage && <Button href={tvSeriesData.homepage} variant="primary" target="_blank" ><i className="fas fa-play-circle"></i>&nbsp;Website</Button>}
                                 {!tvSeriesData.homepage && <Button variant="primary" disabled><i className="fas fa-times-circle"></i>&nbsp;Website</Button>}
                                 
@@ -140,10 +123,22 @@ const TvSeriesDetail = () => {
                                     variant="outline-primary"
                                     title="Season"
                                     id="input-group-dropdown-1"
-                                    >
+                                    >   
                                         {tvSeriesData.seasons.map((season)=>(
                                             <Dropdown.Item href={`/tv/${id}/season/${season.season_number}`} style={{textAlign: "center"}} key={season.season_number}>Season {season.season_number}</Dropdown.Item>                                            
                                         ))}
+                                    </DropdownButton>
+                                }
+
+                                {videos.length>0 &&
+                                    <DropdownButton
+                                        variant="outline-danger"
+                                        title="VIDEOS"
+                                        id="input-group-dropdown-1"
+                                    >
+                                    {videos.map((video)=>(
+                                        <Dropdown.Item key={video.key} target="_blank" href={`https://www.youtube.com/watch?v=${video.key}`}>{video.name}</Dropdown.Item>
+                                    ))}
                                     </DropdownButton>
                                 }
 
