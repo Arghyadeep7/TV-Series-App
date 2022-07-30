@@ -198,8 +198,8 @@ const TvSeriesDetail = () => {
                         <Col md={8}>
 
                             <Col style={{display:"flex", justifyContent: "flex-start"}}>
-                                <h5 className={styles.font_manager} style={{color:"goldenrod", marginRight:'50px'}}><i className="fa-solid fa-star" />&nbsp;{tvSeriesData.vote_average}&nbsp;&nbsp;({tvSeriesData.vote_count} votes)</h5>
-                                <h5 className={styles.font_manager}><i className="fas fa-clock" />&nbsp;{tvSeriesData.episode_run_time[0]} mins.</h5>
+                                {tvSeriesData.vote_count!=="" && <h5 className={styles.font_manager} style={{color:"goldenrod", marginRight:'50px'}}><i className="fa-solid fa-star" />&nbsp;{tvSeriesData.vote_average}&nbsp;&nbsp;({tvSeriesData.vote_count} votes)</h5>}
+                                {tvSeriesData.episode_run_time[0] && <h5 className={styles.font_manager}><i className="fas fa-clock" />&nbsp;{tvSeriesData.episode_run_time[0]} mins.</h5>}
                             </Col>
 
                             {tvSeriesData.tagline!=="" && <h5 className={styles.font_manager}><i><b>"{tvSeriesData.tagline}"</b></i></h5>}

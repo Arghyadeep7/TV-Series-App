@@ -89,7 +89,7 @@ const SeasonComponent = () => {
                         </Col>
                         <Col xs={12} md={7} style={{marginTop:"10px"}}>
 
-                            <h2><b className={styles.title}>{episodeData.name}</b></h2>
+                            {episodeData.name && <h2><b className={styles.title}>{episodeData.name}</b></h2>}
 
                             {episodeData.air_date && <h5 className={styles.font_manager}>Aired on : {episodeData.air_date}</h5>}
 
@@ -103,8 +103,8 @@ const SeasonComponent = () => {
                             </Row>
 
                             <div style={{display:"flex", justifyContent: "flex-start"}}>
-                                <h5 className={styles.font_manager} style={{color:"goldenrod", marginRight:'50px'}}><i className="fa-solid fa-star" />&nbsp;{episodeData.vote_average}&nbsp;&nbsp;({episodeData.vote_count} votes)</h5>
-                                <h5 className={styles.font_manager}><i className="fas fa-clock" />&nbsp;{episodeData.runtime} mins.</h5>
+                                {episodeData.vote_average && <h5 className={styles.font_manager} style={{color:"goldenrod", marginRight:'50px'}}><i className="fa-solid fa-star" />&nbsp;{episodeData.vote_average}&nbsp;&nbsp;({episodeData.vote_count} votes)</h5>}
+                                {episodeData.runtime && <h5 className={styles.font_manager}><i className="fas fa-clock" />&nbsp;{episodeData.runtime} mins.</h5>}
                                 {videos.length>0 &&
                                     <DropdownButton
                                         variant="outline-danger"
