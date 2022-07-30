@@ -98,7 +98,7 @@ const TvSeriesDetail = () => {
                 <h3><i className="fas fa-hourglass-half" />&nbsp;Loading...</h3>
                 :
                 <>
-                    <Row style={{justifyContent:"center"}}>
+                    <Row style={{justifyContent:"center", marginBottom:"20px"}}>
 
                         <Col md={4} className={styles.poster}>
                             <img

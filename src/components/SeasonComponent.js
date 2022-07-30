@@ -107,7 +107,7 @@ const SeasonComponent = () => {
                 <>
                     <Row style={{justifyContent: 'center'}}>
 
-                        <Col xs={10} md={4} style={{marginTop:"10px"}}>
+                        <Col md={4} style={{marginTop:"10px"}}>
 
                             {images.length!==0 && <CarouselComponent items={images}/>}
                             {images.length ===0 && 
@@ -118,29 +118,32 @@ const SeasonComponent = () => {
                                 />
                             }
 
-                            <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"20px"}}>
+                            <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"20px", marginBottom:"10px"}}>
 
-                            {trailer && <Button href={`https://www.youtube.com/watch?v=${trailer}`} target="_blank" variant="danger" style={{backgroundColor:"red"}}><i className="fab fa-youtube" />&nbsp;Trailer</Button>}
-                            {!trailer && <Button variant="danger" style={{backgroundColor:"red"}} disabled><i className="fas fa-times-circle"/>&nbsp;Trailer</Button>}
+                                {trailer && <Button href={`https://www.youtube.com/watch?v=${trailer}`} target="_blank" variant="danger" style={{backgroundColor:"red"}}><i className="fab fa-youtube" />&nbsp;Trailer</Button>}
+                                {!trailer && <Button variant="danger" style={{backgroundColor:"red"}} disabled><i className="fas fa-times-circle"/>&nbsp;Trailer</Button>}
 
-                            {tvSeriesData.homepage && <Button href={tvSeriesData.homepage} variant="primary" target="_blank" ><i className="fas fa-play-circle"></i>&nbsp;Website</Button>}
-                            {!tvSeriesData.homepage && <Button variant="primary" disabled><i className="fas fa-times-circle"></i>&nbsp;Website</Button>}
+                                {tvSeriesData.homepage && <Button href={tvSeriesData.homepage} variant="primary" target="_blank" ><i className="fas fa-play-circle"></i>&nbsp;Website</Button>}
+                                {!tvSeriesData.homepage && <Button variant="primary" disabled><i className="fas fa-times-circle"></i>&nbsp;Website</Button>}
 
-                            {tvSeriesData.seasons.length!==0 && 
-                                <DropdownButton
-                                    variant="outline-primary"
-                                    title="Season"
-                                    id="input-group-dropdown-1"
-                                >
-                                    {tvSeriesData.seasons.map((season)=>(
-                                        <>
-                                            {season.season_number!=season_num &&
-                                                <Dropdown.Item href={`/tv/${id}/season/${season.season_number}`} style={{textAlign: "center"}} key={season.season_number}>Season {season.season_number}</Dropdown.Item>                                            
-                                            }
-                                        </>
-                                    ))}
-                                </DropdownButton>
-                            }
+                                {tvSeriesData.seasons.length!==0 && 
+                                    <DropdownButton
+                                        variant="outline-primary"
+                                        title="Season"
+                                        id="input-group-dropdown-1"
+                                    >
+                                        {tvSeriesData.seasons.map((season)=>(
+                                            <>
+                                                {season.season_number!=season_num &&
+                                                    <Dropdown.Item href={`/tv/${id}/season/${season.season_number}`} style={{textAlign: "center"}} key={season.season_number}>Season {season.season_number}</Dropdown.Item>                                            
+                                                }
+                                                {season.season_number==season_num &&
+                                                    <Dropdown.Item style={{textAlign: "center"}}  bg="primary" key={season.season_number} active>Season {season.season_number}</Dropdown.Item>                                            
+                                                }
+                                            </>
+                                        ))}
+                                    </DropdownButton>
+                                }
 
                             </div>
 
