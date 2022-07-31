@@ -10,7 +10,7 @@ const Footer = () => {
         </Col>
         <Col sm={4} md={5} lg={6} style={{display:'flex', justifyContent: 'center', marginTop:'10px'}}>
           <a href="https://www.linkedin.com/in/arghya-deep-pal7/" style={{color:'blue', textDecoration: 'none'}} target="_blank"><i class="fab fa-linkedin fa-2x"></i>&nbsp;&nbsp;</a>
-          <a href="https://github.com/Arghyadeep7" style={{color:'black', textDecoration: 'none'}} target="_blank"><i class="fab fa-github fa-2x"></i>&nbsp;&nbsp;</a>
+          <a href="https://github.com/Arghyadeep7" style={{color:'white', textDecoration: 'none'}} target="_blank"><i class="fab fa-github fa-2x"></i>&nbsp;&nbsp;</a>
           <a href="mailto:ronipal07@gmail.com" style={{color:'red', textDecoration: 'none'}} target="_blank"><i class="fas fa-envelope fa-2x"></i></a>
         </Col>
         <Col lg={2} style={{display:'flex', justifyContent: 'center', marginTop:'10px'}}>
